@@ -9,23 +9,33 @@ import java.util.List;
 public class System {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String country;
     private String confederation;
-    @OneToMany(mappedBy = "system", cascade = CascadeType.ALL)
     private int teams;
+    @OneToMany(mappedBy = "system", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Team> team;
 
 
 
     public System(String name, String country, String confederation, int teams) {
+        this.id = id;
         this.name = name;
         this.country = country;
         this.confederation = confederation;
         this.teams = teams;
     }
     public System() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
