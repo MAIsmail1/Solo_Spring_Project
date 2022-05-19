@@ -1,10 +1,17 @@
 package com.example.onetomanyPL.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Team {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
     private int founded;
     private String ground;
     private String position;
+    @ManyToOne
+    private System system;
 
     public Team() {
     }
