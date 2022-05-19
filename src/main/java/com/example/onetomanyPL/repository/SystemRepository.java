@@ -1,4 +1,6 @@
 package com.example.onetomanyPL.repository;
 
-public interface SystemRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SystemRepository extends JpaRepository<System, Long> {
 }
