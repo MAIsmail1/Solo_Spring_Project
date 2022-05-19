@@ -1,4 +1,7 @@
 package com.example.onetomanyPL.repository;
 
-public interface TeamRepository {
+import com.example.onetomanyPL.model.Team;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TeamRepository extends JpaRepository<Team, Long> {
 }
