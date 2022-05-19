@@ -1,19 +1,31 @@
 package com.example.onetomanyPL.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class System {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
     private String country;
     private String confederation;
+    @OneToMany(mappedBy = "system", cascade = CascadeType.ALL)
     private int teams;
+    @JsonIgnore
+    private List<Team> team;
 
-    public System() {
-    }
+
 
     public System(String name, String country, String confederation, int teams) {
         this.name = name;
         this.country = country;
         this.confederation = confederation;
         this.teams = teams;
+    }
+    public System() {
     }
 
     public String getName() {
